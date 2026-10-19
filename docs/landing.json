@@ -1,0 +1,60 @@
+{
+  "seo_title": "Fan speed monitor for macOS",
+  "seo_description": "Free, open-source macOS menu bar app that shows every fan's RPM, a ten-minute sparkline and thermal state, with optional alerts. Read-only and offline.",
+  "hero_title_line1": "Every fan's RPM,",
+  "hero_title_accent": "one glance away.",
+  "hero_sub": "FanSpeedGlance lives in your menu bar and shows live RPM for every fan, plus the system thermal state. Click the item for per-fan gauges and history; press Command-comma for Settings.",
+  "features_title": "Read-only, and quietly useful.",
+  "features_sub": "A narrow monitor that shows what your fans are doing and warns you only when something looks wrong.",
+  "features": [
+    {
+      "icon": "cpu",
+      "title": "Live RPM in the menu bar",
+      "desc": "Show the highest fan RPM, a fan glyph, or both. Values round to the nearest 10 and use fixed-width digits so the status item stays steady."
+    },
+    {
+      "icon": "sliders",
+      "title": "Every fan, with context",
+      "desc": "The popover lists each fan with its current RPM, percent of maximum, a gauge, and its minimum and maximum speed. Two-fan Macs show Left and Right."
+    },
+    {
+      "icon": "clock",
+      "title": "Ten-minute sparkline",
+      "desc": "A short rolling history for each fan makes spin-ups easy to spot. It is kept in memory only and never written to disk."
+    },
+    {
+      "icon": "bell",
+      "title": "Quiet or loud alerts",
+      "desc": "Get warned when a fan stays above your chosen percent of its maximum for over two minutes, or reads 0 RPM for a minute while the system is running warm. Notifications are off by default, with an optional sound."
+    },
+    {
+      "icon": "shield",
+      "title": "Read-only by design",
+      "desc": "It never writes fan speeds, installs no helper tool and needs no root access. Fanless Macs like the MacBook Air show the thermal state instead."
+    },
+    {
+      "icon": "bolt",
+      "title": "Light on resources",
+      "desc": "Refresh every 1, 2 or 5 seconds. Polling pauses when the popover is closed and nothing else needs live data. Launch at login is optional."
+    }
+  ],
+  "permissions_step": "No special permissions are required; if you turn on alerts, allow notifications for FanSpeedGlance when macOS asks (System Settings > Notifications).",
+  "faq": [
+    {
+      "q": "Is FanSpeedGlance really free and open source?",
+      "a": "Yes. It is released under the MIT license, has no ads, no accounts and no paid tier. The full source is on GitHub, and if you find it useful you can support development through the Ko-fi button in the app."
+    },
+    {
+      "q": "What permissions does it need?",
+      "a": "None to read fan speeds, which uses read-only calls to the AppleSMC service. Notification permission is requested only if you enable alerts, and a login item is added only if you enable Launch at login. It never asks for Accessibility, Screen Recording or Microphone access."
+    },
+    {
+      "q": "Where is my data stored?",
+      "a": "Your settings are stored locally in the app's standard preferences. The ten-minute fan history lives in memory only and disappears when you quit. The app talks to no server."
+    },
+    {
+      "q": "Why isn't the app notarized?",
+      "a": "Notarization requires a paid Apple Developer account, and this is a free project. Right-click the app and choose Open once to approve it, or build it yourself from source with Xcode."
+    }
+  ]
+}

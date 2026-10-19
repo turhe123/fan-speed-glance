@@ -1,0 +1,4 @@
+[
+  {"file":"01-popover.png","caption":"The menu bar popover shows the system thermal state and each fan's live RPM, percent of maximum, gauge, min/max range and a ten-minute history sparkline.","alt":"FanSpeedGlance popover listing Left and Right fans with RPM and thermal state"},
+  {"file":"02-settings.png","caption":"Settings let you choose the menu bar title style and refresh rate, configure high-speed and stopped-fan alerts, and enable launch at login.","alt":"FanSpeedGlance Settings window with display, alerts and general sections"}
+]

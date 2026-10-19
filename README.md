@@ -1,5 +1,7 @@
 # FanSpeedGlance
 
+**🌐 Website:** [turhe123.github.io/fan-speed-glance](https://turhe123.github.io/fan-speed-glance/)
+
 A menu bar readout of every fan's RPM with a short history sparkline and quiet or loud alerts.
 
 ![macOS 14+](https://img.shields.io/badge/macOS-14%2B-blue)
@@ -30,7 +32,13 @@ FanSpeedGlance is a free, open-source, 100% native, backend-free alternative to 
 
 ## Screenshots
 
-_Screenshots coming soon._
+<p align="center"><img src="docs/screenshots/01-popover.png" alt="FanSpeedGlance popover listing Left and Right fans with RPM and thermal state" width="720"></p>
+
+<p align="center"><em>The menu bar popover shows the system thermal state and each fan&#x27;s live RPM, percent of maximum, gauge, min/max range and a ten-minute history sparkline.</em></p>
+
+<p align="center"><img src="docs/screenshots/02-settings.png" alt="FanSpeedGlance Settings window with display, alerts and general sections" width="560"></p>
+
+<p align="center"><em>Settings let you choose the menu bar title style and refresh rate, configure high-speed and stopped-fan alerts, and enable launch at login.</em></p>
 
 ## Install
 
