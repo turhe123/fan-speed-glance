@@ -1,0 +1,75 @@
+# FanSpeedGlance
+
+A menu bar readout of every fan's RPM with a short history sparkline and quiet or loud alerts.
+
+![macOS 14+](https://img.shields.io/badge/macOS-14%2B-blue)
+![Swift 5.9](https://img.shields.io/badge/Swift-5.9-orange)
+![License MIT](https://img.shields.io/badge/License-MIT-green)
+![Latest release](https://img.shields.io/github/v/release/turhe123/fan-speed-glance)
+
+## Why
+
+FanSpeedGlance is a free, open-source, 100% native, backend-free alternative to paid utilities in the *System Monitoring* category. It was inspired by tools like Macs Fan Control Pro ($14.95 one-time), a well-regarded app. FanSpeedGlance is deliberately narrower: it is a read-only monitor that shows what your fans are doing and warns you about unusual behavior. It never writes fan speeds, has no helper tool, and talks to no server.
+
+## Features
+
+- **Menu bar readout** of the highest fan RPM, a fan glyph, or both (your choice). RPM is rounded to the nearest 10 and uses fixed-width digits so the status item doesn't jiggle.
+- **Every fan listed** in the popover (named Left/Right on two-fan Macs, otherwise Fan 1, Fan 2, …) with current RPM, percent of maximum, a gauge, and the fan's minimum and maximum RPM.
+- **Ten-minute sparkline** per fan, kept in memory only.
+- **System thermal state** (Nominal, Fair, Serious, Critical) with a colored dot.
+- **Two optional alerts**:
+  - A fan stays above a chosen percent of its maximum (50–100%, default 90%) for over two minutes.
+  - A fan that should be spinning reads 0 RPM for a minute while the thermal state is Fair or worse.
+  - Alerts only start timing after two consecutive qualifying samples, so brief spikes after wake stay quiet.
+- **Quiet or loud**: notifications are off by default; an optional sound makes alerts loud.
+- **Refresh interval** of 1, 2 or 5 seconds. Polling pauses when the popover is closed and nothing else needs live data.
+- **Launch at login** via `SMAppService`.
+- **Graceful edge cases**: fanless Macs (e.g. MacBook Air) show "This Mac has no fans" plus the thermal state; if the SMC can't be opened you get a clear "Fan sensors unavailable" message; implausible readings (negative or over 20,000 RPM) are discarded and the previous value is kept.
+- **Keyboard shortcuts**: ⌘, for Settings, ⌘Q to quit.
+- A visible **Support / Donate ❤️** button in the popover and in Settings.
+
+## Screenshots
+
+_Screenshots coming soon._
+
+## Install
+
+1. Download `FanSpeedGlance-macOS.zip` from the [latest release](https://github.com/turhe123/fan-speed-glance/releases/latest).
+2. Unzip it and move `FanSpeedGlance.app` to `/Applications`.
+3. Because the app is open source and not notarized, clear the quarantine attribute:
+
+   ```bash
+   xattr -cr /Applications/FanSpeedGlance.app
+   ```
+
+4. The first time, right-click the app and choose **Open**.
+
+## Build from source
+
+Requires macOS 14+ and Xcode with Swift 5.9+.
+
+```bash
+brew install xcodegen
+xcodegen generate
+xcodebuild -project FanSpeedGlance.xcodeproj -scheme FanSpeedGlance -configuration Release -derivedDataPath ./build build
+```
+
+The app is produced at `build/Build/Products/Release/FanSpeedGlance.app`.
+
+## Permissions
+
+FanSpeedGlance asks for very little:
+
+- **Notifications** (optional): requested only when you turn on "Send notifications", so alerts can be delivered. If you decline, the app works normally without alerts.
+- **Login item** (optional): only if you enable "Launch at login".
+- **No Accessibility, Screen Recording, or Microphone access** is requested, and no root privileges are needed. Fan speeds are read with read-only calls to the AppleSMC service through IOKit.
+
+## Support ❤️
+
+If FanSpeedGlance is useful to you, you can support its development:
+
+[Support Or (Leo) Davidai ❤️ on Ko-fi](https://ko-fi.com/leodavidai)
+
+## License
+
+MIT © Or Davidai Bachar
